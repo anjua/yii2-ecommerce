@@ -54,7 +54,7 @@ AppAsset::register($this);
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?php echo Url::to(['/product/index']) ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Products</span></a>
             </li>
@@ -280,7 +280,9 @@ AppAsset::register($this);
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php echo $content; ?>
+                <div class="p-4">
+                    <?php echo $content; ?>
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -320,7 +322,7 @@ AppAsset::register($this);
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a data-method="post" class="btn btn-primary" href="<?php echo Url::to(['/site/logout']) ;?>">Logout</a>
+                    <a data-method="post" class="btn btn-primary" href="<?php echo Url::to(['/site/logout']); ?>">Logout</a>
                 </div>
             </div>
         </div>
