@@ -22,12 +22,11 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'image', [
         'template' => '
-            <div class="input-group mb-3">
                 <div class="custom-file">
                     {input}
                     {label}
+                    {error}
                 </div>
-            </div>
         ',
         'inputOptions' => ['class' => 'custom-file-input'],
         'labelOptions' => ['class' => 'custom-file-label']
