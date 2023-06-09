@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
@@ -38,6 +40,14 @@ class Product extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%products}}';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+            BlameableBehavior::class,
+        ];
     }
 
     /**
@@ -147,5 +157,10 @@ class Product extends \yii\db\ActiveRecord
         }
 
         return $ok;
+    }
+
+    public function getImageUrl()
+    {
+        return Yii::$app->params['frontendUrl'].'./storage'.$this->image;
     }
 }
